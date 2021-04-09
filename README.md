@@ -11,22 +11,22 @@ It explains why the relationship between Seller and Client is one to many(1 to N
 
 <h2>Entities</h2>
 
-<p>Sellers</p>
+<p>Vendedores</p>
 
 <ol>
-  <ul>id</ul>
-  <ul>name</ul>
-  <ul>table_id</ul>
-  <ul>birth_date</ul>
+  <ul>cdvend</ul>
+  <ul>dsnome</ul>
+  <ul>cdtab</ul>
+  <ul>dtnasc</ul>
 </ol>
 
-<p>Clients</p>
+<p>Clientes</p>
 
 <ol>
-  <ul>name</ul>
-  <ul>type_id <strong> (default PF)</strong></ul>
-  <ul>birth_date</ul>
-  <ul>desc_limit</ul>
-  <ul>id <strong> (FK to Sellers table)</strong></ul>
+  <ul>cdcl</ul>
+  <ul>dsnome</ul>
+  <ul>idtipo <strong> (default PF)</strong></ul>
+  <ul>dslim</ul>
+  <ul>cdvend <strong> (FK to Sellers table)</strong></ul>
 </ol>
 
