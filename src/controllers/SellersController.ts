@@ -13,8 +13,8 @@ export default class SellersController {
     const filters = request.query;
 
     const clnome = filters.clnome as string;
-    const dslim = filters.clnome as string;
-    const idtipo = filters.clnome as string;
+    const dslim = filters.dslim as string;
+    const idtipo = filters.idtipo as string;
 
     if (!filters.clnome || !filters.dslim || !filters.idtipo) {
       return response.status(400).json({
