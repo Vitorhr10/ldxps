@@ -17,26 +17,38 @@ routes.post('/sellers', async (request, response) => {
     cliente,
   } = request.body;
 
-  const insertedSellersIds = await db('vendedores').insert({
-    dsnome,
-    cdtab,
-    dtnasc,
-  })
+  const trx = await db.transaction();
 
-  const vendedores_cdvend = insertedSellersIds[0];
+  try {
+    const insertedSellersIds = await trx('vendedores').insert({
+      dsnome,
+      cdtab,
+      dtnasc,
+    })
+  
+    const vendedores_cdvend = insertedSellersIds[0];
+  
+    const clienteDoVendedor = cliente.map((clientItem: ClientItem) => {
+      return {
+        vendedores_cdvend,
+        clnome: clientItem.clnome,
+        dslim: clientItem.dslim,
+        idtipo: clientItem.idtipo,
+      };
+    })
+  
+    await trx('clientes').insert(clienteDoVendedor);
+  
+    await trx.commit();
+  
+    return response.status(201).send();
+  } catch (error) {
+    await trx.rollback();
 
-  const clienteDoVendedor = cliente.map((clientItem: ClientItem) => {
-    return {
-      vendedores_cdvend,
-      clnome: clientItem.clnome,
-      dslim: clientItem.dslim,
-      idtipo: clientItem.idtipo,
-    };
-  })
-
-  await db('clientes').insert(clienteDoVendedor);
-
-  return response.send();
+    return response.status(400).json({
+      error: 'Unexpected error while creating new Seller'   
+    })
+  }
 });
 
 export default routes;
