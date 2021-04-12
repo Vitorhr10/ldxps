@@ -1,32 +1,54 @@
-<h1>Database</h1>
+# LDXPS back-end
 
-<p>One seller has multiple clients and one client has jus one seller.<p>
+## Techs
+- NodeJS
+- Express
+- Knex
+- Sqlite3
+- Cors
 
-<ol>
-  <li>Landix has multiple clients, such as, Coca cola, Nico, Atacadão, etc.</li>
-  <li>Coca cola has just seller, Landix.</li>
-</ol>
+## Getting started
 
-It explains why the relationship between Seller and Client is one to many(1 to N).
+To clone and run the application, you will need to have [Git](https://git-scm.com), [Node.js](https://nodejs.org) + [Yarn](https://yarnpkg.com) installed on your machine. With all programs installed, run the following command lines:
 
-<h2>Entities</h2>
+## Clone this repository
+```bash
+$ git clone https://github.com/Vitorhr10/ldxps-backend
+```
 
-<p>Vendedores</p>
+## Access the repository
+```bash
+$ cd ldxps-backend
+```
 
-<ol>
-  <ul>cdvend</ul>
-  <ul>dsnome</ul>
-  <ul>cdtab</ul>
-  <ul>dtnasc</ul>
-</ol>
+## Install the dependencies
+```bash
+$ yarn install 
+or
+npm run
+```
 
-<p>Clientes</p>
+## Database
 
-<ol>
-  <ul>cdcl</ul>
-  <ul>dsnome</ul>
-  <ul>idtipo <strong> (default PF)</strong></ul>
-  <ul>dslim</ul>
-  <ul>cdvend <strong> (FK to Sellers table)</strong></ul>
-</ol>
+Start the database by running:
+```bash
+yarn knex:migrate
+```
+O arquivo será criado no diretório `./src/database/database.sqlite`.
 
+## Iniciar servidor(API)
+```bash
+yarn dev
+```
+
+## Available scripts
+
+### run new migrations
+```bash
+yarn knex:migrate
+```
+
+### Reveter last migration
+```bash
+yarn knex:migrate:rollback
+```
