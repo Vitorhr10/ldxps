@@ -36,6 +36,7 @@ yarn knex:migrate
 ```
 
 The file will be created in the directory: `./src/database/database.sqlite`.
+You can install this extension on VS code to see the database: https://marketplace.visualstudio.com/items?itemName=alexcvzz.vscode-sqlite
 
 ## Start server(API)
 ```bash
