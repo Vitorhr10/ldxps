@@ -34,9 +34,10 @@ Start the database by running:
 ```bash
 yarn knex:migrate
 ```
-O arquivo será criado no diretório `./src/database/database.sqlite`.
 
-## Iniciar servidor(API)
+The file will be created in the directory: `./src/database/database.sqlite`.
+
+## Start server(API)
 ```bash
 yarn dev
 ```
@@ -48,7 +49,7 @@ yarn dev
 yarn knex:migrate
 ```
 
-### Reveter last migration
+### Revert last migration
 ```bash
 yarn knex:migrate:rollback
 ```
