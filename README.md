@@ -33,6 +33,8 @@ npm run
 Start the database by running:
 ```bash
 yarn knex:migrate
+or
+npm run knex:migrate
 ```
 
 The file will be created in the directory: `./src/database/database.sqlite`.
@@ -41,6 +43,8 @@ You can install this extension on VS code to see the database: https://marketpla
 ## Start server(API)
 ```bash
 yarn dev
+or
+npm run dev
 ```
 
 ## Available scripts
@@ -48,9 +52,13 @@ yarn dev
 ### run new migrations
 ```bash
 yarn knex:migrate
+or
+npm run knex:migrate
 ```
 
 ### Revert last migration
 ```bash
 yarn knex:migrate:rollback
+or
+npm run knex:migrate:rollback
 ```
